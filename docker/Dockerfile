@@ -47,5 +47,6 @@ RUN git clone --recursive https://github.com/FunAudioLLM/CosyVoice.git
 RUN conda activate ${VENV} && conda install -y -c conda-forge pynini==2.1.5
 RUN conda activate ${VENV} && cd CosyVoice && \
     pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
-
 WORKDIR /workspace/CosyVoice
+CMD ["python", "webui.py", "--model_dir", "iic/CosyVoice-300M", "--port", "5000", "--host", "0.0.0.0"]
+
